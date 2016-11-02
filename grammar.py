@@ -1,7 +1,8 @@
 class grammar(object):
 	def __init__(self,text):
 		self.rules = dict(map(lambda x: (x.split("->")[0].strip(),x.split("->")[1].strip().split("|")),text.strip().split("\n")))
-		self.nonTerminatingSymbols = self.rules.keys()
+		self.nonTerminatingSymbols = set(self.rules.keys())
+		self.headSymbol = text.split("->")[0]
 	def size(self,nts):
 		return len(self.rules[nts])
 
