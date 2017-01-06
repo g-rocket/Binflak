@@ -16,6 +16,7 @@ Since only one closing-bracket is valid at any given position in a program, all 
 |<|4|
 
 Second, the numbers are "compacted," by subtracting the number of invalid programs (with more closing than opening braces) are less than it.
+Currently, this is calculated by brute-force, but I'm sure there's a clean(er) mathematical way to find this.
 
 Finally, this number (as a sequence of extended-ASCII characters or whatnot) is your program.
 
