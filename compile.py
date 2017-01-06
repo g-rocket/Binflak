@@ -28,4 +28,11 @@ def compile(brainSource, debug = False):
 	return compactEBin(compileEBin(brainSource, debug))
 
 if __name__ == "__main__":
-	pass
+	if len(sys.argv) != 3:
+		print("usage: decompile.py output_file input_brainflak_program")
+	else:
+		binSource = compile(sys.argv[2])
+		with open(sys.argv[1],'wb') as f:
+			while binSource > 0:
+				f.write(bytes([binSource % 256]))
+				binSource //= 256

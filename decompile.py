@@ -1,3 +1,4 @@
+import sys
 from ebin import expandEBin
 
 closeMap = {
@@ -35,4 +36,14 @@ def decompile(binSource, debug = False):
 	return decompileEBin(expandEBin(binSource), debug)
 
 if __name__ == "__main__":
-	pass
+	if len(sys.argv) != 2:
+		print("usage: decompile.py input_file")
+	else:
+		binSource = 0
+		with open(sys.argv[1],'rb') as f:
+			bytes = f.read()
+			multiplier = 1
+			for byte in bytes:
+				binSource += byte * multiplier;
+				multiplier *= 256;
+		print(decompile(binSource))
