@@ -1,3 +1,4 @@
+import sys
 from ebin import compactEBin
 
 charMap = {
@@ -21,7 +22,7 @@ def compileEBin(brainSource, debug = False):
 		
 		binSource += binChar * multiplier
 		multiplier *= 5
-	return compactEBin(binSource)
+	return binSource
 
 def compile(brainSource, debug = False):
 	return compactEBin(compileEBin(brainSource, debug))
