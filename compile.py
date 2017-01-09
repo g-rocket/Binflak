@@ -29,7 +29,7 @@ def compile(brainSource, debug = False):
 
 if __name__ == "__main__":
 	if len(sys.argv) != 3:
-		print("usage: decompile.py output_file input_brainflak_program")
+		print("usage: compile.py output_file input_brainflak_program")
 	else:
 		binSource = compile(sys.argv[2])
 		with open(sys.argv[1],'wb') as f:
